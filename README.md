@@ -1,17 +1,11 @@
-# finding_ruby
+# Finding Ruby
 
-A new Flutter project.
+An interactive game taking place solely from Ruby’s smartphone! 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Synopsis
 
-A few resources to get you started if this is your first Flutter project:
+Intro: “Help!” That’s the last thing your friend Ruby sent you before she went missing. Detectives need your help logging into her phone and looking for clues on where and how to find her! 
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+This game takes the user through Ruby’s phone in search for clues on where to find the missing Ruby. The user must look through call logs, chats, and various social medias to find the missing girl. If they fail, then Ruby would be lost forever. 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
