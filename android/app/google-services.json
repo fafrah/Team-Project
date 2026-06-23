@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1030043597808",
+    "project_id": "finding-ruby",
+    "storage_bucket": "finding-ruby.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030043597808:android:016539931edbbb5e927b35",
+        "android_client_info": {
+          "package_name": "com.example.finding_ruby"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU07J9wAnqFBFZyvGW8VbD70ZNwfZYNF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
