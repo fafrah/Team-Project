@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'home_screen.dart'; // CHANGE 1: import your new screen
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Center(child: Text('Firebase Initialized'))),
+      title: 'Finding Ruby',
+      home: const HomeScreen(), // CHANGE 2: show HomeScreen instead of the placeholder
     );
   }
 }
