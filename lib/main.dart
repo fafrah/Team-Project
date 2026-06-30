@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'home_screen.dart'; // CHANGE 1: import your new screen
+import 'theme/app_theme.dart';
+import 'screens/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
-  runApp(const MyApp());
+  runApp(const FindingRuby());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class FindingRuby extends StatelessWidget {
+  const FindingRuby({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Finding Ruby',
-      home: const HomeScreen(), // CHANGE 2: show HomeScreen instead of the placeholder
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.darkTheme,
+      home: const SplashScreen(),
     );
   }
 }
