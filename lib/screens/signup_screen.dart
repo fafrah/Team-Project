@@ -42,11 +42,11 @@ class _SignupScreenState extends State<SignupScreen> {
       }
     } on FirebaseAuthException catch (e) {
       setState(() {
-        errorMessage = e.message ?? 'Signup failed. Please try again.';
+        errorMessage = '${e.code}: ${e.message ?? 'Signup failed.'}';
       });
-    } catch (_) {
+    } catch (e) {
       setState(() {
-        errorMessage = 'Something went wrong. Please try again.';
+        errorMessage = 'Error: $e';
       });
     }
 
