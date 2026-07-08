@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'lock_screen.dart';
+import 'loading_screen.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -71,9 +72,11 @@ class IntroScreen extends StatelessWidget {
 
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (_) => const LockScreen()),
+                          MaterialPageRoute(
+                            builder: (_) => const LoadingScreen(),
+                          ),
                         );
                       },
 
