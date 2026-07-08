@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'logout_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,6 +13,7 @@ class HomeScreen extends StatelessWidget {
       _PhoneApp("Notes", Icons.sticky_note_2, const Color(0xffFFCC00)),
       _PhoneApp("Phone", Icons.phone, const Color(0xff34C759)),
       _PhoneApp("Social", Icons.tag, const Color(0xffD32F2F)),
+      _PhoneApp("Logout", Icons.logout, Colors.redAccent),
     ];
 
     return Scaffold(
@@ -68,6 +70,13 @@ class _AppIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        if (app.name == "Logout") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const LogoutScreen())
+          );
+          return;
+        }
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text("${app.name} coming soon"),
