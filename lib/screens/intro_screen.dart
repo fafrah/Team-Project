@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'lock_screen.dart';
 import 'loading_screen.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -10,21 +9,20 @@ class IntroScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
-
         children: [
           Image.asset("lib/assets/images/background.jpg", fit: BoxFit.cover),
 
           Container(color: Colors.black.withOpacity(.72)),
 
           SafeArea(
-            child: Padding(
+            child: SingleChildScrollView(
               padding: const EdgeInsets.all(28),
 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
 
                 children: [
-                  const Spacer(),
+                  const SizedBox(height: 40),
 
                   const Text(
                     "HELP!",
@@ -63,11 +61,10 @@ class IntroScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
 
-                  const Spacer(),
+                  const SizedBox(height: 40),
 
                   SizedBox(
                     width: double.infinity,
-
                     height: 60,
 
                     child: ElevatedButton(
