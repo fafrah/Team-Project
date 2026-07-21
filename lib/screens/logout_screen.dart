@@ -20,7 +20,7 @@ class LogoutScreen extends StatelessWidget {
         children: [
           Image.asset("lib/assets/images/background.jpg", fit: BoxFit.cover),
 
-          Container(color: Colors.black.withOpacity(.78)),
+          Container(color: Colors.black.withValues(alpha: .78)),
 
           SafeArea(
             child: Padding(

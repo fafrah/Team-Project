@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Image.asset("lib/assets/images/background.jpg", fit: BoxFit.cover),
 
-          Container(color: Colors.black.withOpacity(.78)),
+          Container(color: Colors.black.withValues(alpha: .78)),
 
           SafeArea(
             child: Center(
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         labelText: "Email",
                         prefixIcon: const Icon(Icons.email),
                         filled: true,
-                        fillColor: Colors.white.withOpacity(.08),
+                        fillColor: Colors.white.withValues(alpha: .08),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         labelText: "Password",
                         prefixIcon: const Icon(Icons.lock),
                         filled: true,
-                        fillColor: Colors.white.withOpacity(.08),
+                        fillColor: Colors.white.withValues(alpha: .08),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),

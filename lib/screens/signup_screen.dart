@@ -73,7 +73,7 @@ class _SignupScreenState extends State<SignupScreen> {
         children: [
           Image.asset("lib/assets/images/background.jpg", fit: BoxFit.cover),
 
-          Container(color: Colors.black.withOpacity(.78)),
+          Container(color: Colors.black.withValues(alpha: .78)),
 
           SafeArea(
             child: Center(
@@ -116,7 +116,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         labelText: "Email",
                         prefixIcon: const Icon(Icons.email),
                         filled: true,
-                        fillColor: Colors.white.withOpacity(.08),
+                        fillColor: Colors.white.withValues(alpha: .08),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -132,7 +132,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         labelText: "Password",
                         prefixIcon: const Icon(Icons.lock),
                         filled: true,
-                        fillColor: Colors.white.withOpacity(.08),
+                        fillColor: Colors.white.withValues(alpha: .08),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -148,7 +148,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         labelText: "Confirm Password",
                         prefixIcon: const Icon(Icons.lock_outline),
                         filled: true,
-                        fillColor: Colors.white.withOpacity(.08),
+                        fillColor: Colors.white.withValues(alpha: .08),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),

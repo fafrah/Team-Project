@@ -72,7 +72,7 @@ class _LockScreenState extends State<LockScreen> {
           fit: StackFit.expand,
           children: [
             Image.asset("lib/assets/images/background.jpg", fit: BoxFit.cover),
-            Container(color: Colors.black.withOpacity(.78)),
+            Container(color: Colors.black.withValues(alpha: .78)),
             SafeArea(
               child: Column(
                 children: [
@@ -89,7 +89,7 @@ class _LockScreenState extends State<LockScreen> {
                   Text("Ruby's Phone",
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.white.withOpacity(.85),
+                          color: Colors.white.withValues(alpha: .85),
                           fontWeight: FontWeight.w500)),
                   const SizedBox(height: 40),
                   const Icon(Icons.keyboard_arrow_up,
