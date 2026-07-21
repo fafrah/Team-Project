@@ -26,10 +26,10 @@ class Conversation {
 
 final List<Conversation> conversations = [
   // ==========================
-  // Ruby and You
+  // Ruby and Sarah (Player)
   // ==========================
   Conversation(
-    contactName: "Ruby ❤️",
+    contactName: "Sarah ❤️",
     preview: "Help!",
     messages: const [
       ChatMessage(
@@ -40,7 +40,7 @@ final List<Conversation> conversations = [
         isRuby: true,
       ),
       ChatMessage(
-        sender: "You",
+        sender: "Sarah",
         text: "of course, you ok??",
         time: "8:15 PM",
         isRuby: false,
@@ -59,7 +59,7 @@ final List<Conversation> conversations = [
         isRuby: true,
       ),
       ChatMessage(
-        sender: "You",
+        sender: "Sarah",
         text: "be careful, text me after",
         time: "8:18 PM",
         isRuby: false,

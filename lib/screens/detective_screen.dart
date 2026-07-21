@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'phone_screen.dart';
 
 class DetectiveScreen extends StatelessWidget {
   const DetectiveScreen({super.key});
@@ -67,7 +68,12 @@ class DetectiveScreen extends StatelessWidget {
 
                       child: ElevatedButton(
                         onPressed: () {
-                          // Navigating to Ruby's phone home screen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const PhoneScreen(),
+                            ),
+                          );
                         },
 
                         style: ElevatedButton.styleFrom(
