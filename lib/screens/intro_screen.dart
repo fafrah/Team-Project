@@ -14,7 +14,7 @@ class IntroScreen extends StatelessWidget {
         children: [
           Image.asset("lib/assets/images/background.jpg", fit: BoxFit.cover),
 
-          Container(color: Colors.black.withValues(alpha: .72)),
+          Container(color: Colors.black.withOpacity(.72)),
 
           SafeArea(
             child: Padding(

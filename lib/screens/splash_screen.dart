@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Image.asset("lib/assets/images/background.jpg", fit: BoxFit.cover),
 
-          Container(color: Colors.black.withValues(alpha: .75)),
+          Container(color: Colors.black.withOpacity(.75)),
 
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
