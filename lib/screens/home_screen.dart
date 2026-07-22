@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'logout_screen.dart';
+import 'phone_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -73,10 +74,19 @@ class _AppIcon extends StatelessWidget {
         if (app.name == "Logout") {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (_) => const LogoutScreen())
+            MaterialPageRoute(builder: (_) => const LogoutScreen()),
           );
           return;
         }
+
+        if (app.name == "Phone") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const PhoneScreen()),
+          );
+          return;
+        }
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text("${app.name} coming soon"),
