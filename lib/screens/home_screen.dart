@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'logout_screen.dart';
 import 'phone_screen.dart';
+import 'messages_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,13 +29,21 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text("Ruby's Phone",
-                        style: TextStyle(fontSize: 14, color: Colors.white70)),
-                    Row(children: [
-                      Icon(Icons.wifi, size: 16, color: Colors.white70),
-                      SizedBox(width: 6),
-                      Icon(Icons.battery_full, size: 16, color: Colors.white70),
-                    ]),
+                    Text(
+                      "Ruby's Phone",
+                      style: TextStyle(fontSize: 14, color: Colors.white70),
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.wifi, size: 16, color: Colors.white70),
+                        SizedBox(width: 6),
+                        Icon(
+                          Icons.battery_full,
+                          size: 16,
+                          color: Colors.white70,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -86,6 +95,13 @@ class _AppIcon extends StatelessWidget {
           );
           return;
         }
+        if (app.name == "Messages") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const MessagesScreen()),
+          );
+          return;
+        }
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -107,8 +123,10 @@ class _AppIcon extends StatelessWidget {
             child: Icon(app.icon, color: Colors.white, size: 32),
           ),
           const SizedBox(height: 8),
-          Text(app.name,
-              style: const TextStyle(fontSize: 13, color: Colors.white)),
+          Text(
+            app.name,
+            style: const TextStyle(fontSize: 13, color: Colors.white),
+          ),
         ],
       ),
     );
