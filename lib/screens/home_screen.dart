@@ -4,6 +4,7 @@ import 'phone_screen.dart';
 import 'messages_screen.dart';
 import 'social_media_screen.dart';
 import 'case_file_screen.dart';
+import '../data/investigation_clock.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -84,6 +85,11 @@ class _AppIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // Opening an investigation app costs an hour (first time only).
+        if (app.name != "Logout" && app.name != "Case File") {
+          InvestigationClock.spendHour(app.name);
+        }
+
         if (app.name == "Logout") {
           Navigator.push(
             context,
@@ -117,13 +123,6 @@ class _AppIcon extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (_) => const CaseFileScreen()),
-          );
-          return;
-        }
-        if (app.name == "Logout") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const LogoutScreen()),
           );
           return;
         }

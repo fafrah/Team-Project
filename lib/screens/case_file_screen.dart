@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'accusation_screen.dart';
 
 class CaseFileScreen extends StatelessWidget {
   const CaseFileScreen({super.key});
@@ -113,6 +114,37 @@ class CaseFileScreen extends StatelessWidget {
               title: "Private Notes",
               subtitle: "Ruby's personal notes are locked.",
             ),
+
+            const SizedBox(height: 35),
+
+            SizedBox(
+              width: double.infinity,
+              height: 55,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const AccusationScreen(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.gavel),
+                label: const Text(
+                  "MAKE ACCUSATION",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.redAccent,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 20),
           ],
         ),
       ),
