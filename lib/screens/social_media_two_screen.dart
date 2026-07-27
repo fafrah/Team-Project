@@ -52,7 +52,7 @@ class _SocialMediaTwoScreenState extends State<SocialMediaTwoScreen> {
           const SizedBox(height: 15),
 
           const Text(
-            "Ruby's best friend\n📍Atlanta\nAlways looking out for the people I care about.",
+            "Ruby's mama\n📍Atlanta\nAlways looking out for the people I care about.",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white70),
           ),
