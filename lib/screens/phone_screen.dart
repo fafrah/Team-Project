@@ -27,9 +27,7 @@ class PhoneScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Phone'),
-      ),
+      appBar: AppBar(title: const Text('Phone')),
       body: ListView.separated(
         padding: const EdgeInsets.all(16),
         itemCount: callLogs.length,
@@ -38,9 +36,7 @@ class PhoneScreen extends StatelessWidget {
           final call = callLogs[index];
 
           return ListTile(
-            leading: const CircleAvatar(
-              child: Icon(Icons.person),
-            ),
+            leading: const CircleAvatar(child: Icon(Icons.person)),
             title: Text(call['name']!),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

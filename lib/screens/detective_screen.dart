@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'phone_screen.dart';
 import 'lock_screen.dart';
 
 class DetectiveScreen extends StatelessWidget {

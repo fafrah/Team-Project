@@ -4,6 +4,8 @@ import 'phone_screen.dart';
 import 'messages_screen.dart';
 import 'social_media_screen.dart';
 import 'case_file_screen.dart';
+import 'email_screen.dart';
+import 'social_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -84,6 +86,13 @@ class _AppIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        if (app.name == "Messages") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const MessagesScreen()),
+          );
+          return;
+        }
         if (app.name == "Logout") {
           Navigator.push(
             context,
@@ -127,7 +136,21 @@ class _AppIcon extends StatelessWidget {
           );
           return;
         }
+        if (app.name == "Mail") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const EmailScreen()),
+          );
+          return;
+        }
 
+        if (app.name == "Social") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const SocialScreen()),
+          );
+          return;
+        }
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text("${app.name} coming soon"),
