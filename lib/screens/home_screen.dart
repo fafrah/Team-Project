@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'logout_screen.dart';
+import 'phone_screen.dart';
 import 'messages_screen.dart';
+import 'social_media_screen.dart';
+import 'case_file_screen.dart';
+import 'email_screen.dart';
+import 'social_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,6 +19,8 @@ class HomeScreen extends StatelessWidget {
       _PhoneApp("Notes", Icons.sticky_note_2, const Color(0xffFFCC00)),
       _PhoneApp("Phone", Icons.phone, const Color(0xff34C759)),
       _PhoneApp("Social", Icons.tag, const Color(0xffD32F2F)),
+      _PhoneApp("Beck n' Call", Icons.flutter_dash, const Color(0xff4A90E2)),
+      _PhoneApp("Case File", Icons.folder, const Color(0xff8E44AD)),
       _PhoneApp("Logout", Icons.logout, Colors.redAccent),
     ];
 
@@ -90,6 +97,57 @@ class _AppIcon extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (_) => const LogoutScreen()),
+          );
+          return;
+        }
+
+        if (app.name == "Phone") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const PhoneScreen()),
+          );
+          return;
+        }
+        if (app.name == "Messages") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const MessagesScreen()),
+          );
+          return;
+        }
+        if (app.name == "Beck n' Call") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const SocialMediaScreen()),
+          );
+          return;
+        }
+        if (app.name == "Case File") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const CaseFileScreen()),
+          );
+          return;
+        }
+        if (app.name == "Logout") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const LogoutScreen()),
+          );
+          return;
+        }
+        if (app.name == "Mail") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const EmailScreen()),
+          );
+          return;
+        }
+
+        if (app.name == "Social") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const SocialScreen()),
           );
           return;
         }
