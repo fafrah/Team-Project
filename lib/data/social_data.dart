@@ -26,7 +26,7 @@ final List<SocialPost> socialPosts = [
   // ==========================================
   SocialPost(
     username: "@diane_h",
-    displayName: "Diane Harper",
+    displayName: "Diane Beck",
     verified: false,
     location: "📍 Pinecrest Lake",
     date: "9:40 PM",
