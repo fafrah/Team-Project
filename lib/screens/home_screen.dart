@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../data/investigation_clock.dart';
+
 import 'case_file_screen.dart';
 import 'email_screen.dart';
 import 'logout_screen.dart';
@@ -89,6 +91,12 @@ class _AppIcon extends StatelessWidget {
   const _AppIcon({required this.app});
 
   void openApp(BuildContext context) {
+    // Opening an investigation app costs one hour the first time it is opened.
+    // Logout and Case File do not consume investigation time.
+    if (app.name != 'Logout' && app.name != 'Case File') {
+      InvestigationClock.spendHour(app.name);
+    }
+
     Widget? screen;
 
     switch (app.name) {
