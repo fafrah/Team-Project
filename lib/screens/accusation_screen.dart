@@ -30,7 +30,7 @@ class AccusationScreen extends StatelessWidget {
       _Suspect(
         "Diane",
         "Ruby's Mother",
-        "Her story keeps changing. Says she was home all night.",
+        "Her story keeps changing, and evidence places her near Pinecrest Lake.",
         Icons.person,
       ),
       _Suspect(

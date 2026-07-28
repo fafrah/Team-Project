@@ -40,7 +40,7 @@ class _SocialMediaScreenState extends State<SocialMediaScreen> {
     },
 
     {
-      "text": "Tomorrow I'm getting answers. No more excuses.",
+      "text": "Tonight I'm getting answers. No more excuses.",
       "likes": "417",
       "comments": "76",
       "time": "Yesterday • 6:12 PM",

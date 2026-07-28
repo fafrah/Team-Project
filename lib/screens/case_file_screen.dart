@@ -60,8 +60,8 @@ class CaseFileScreen extends StatelessWidget {
                       'Her cracked phone was later recovered near a roadside '
                       'turnout on Pinecrest Road, approximately two miles from '
                       'Pinecrest Lake.\n\n'
-                      'Ruby, her vehicle, and her personal bag were not found '
-                      'at the scene.',
+                      'Ruby and her personal bag were not found at the scene. '
+                      'Her vehicle remained parked at her residence.',
                       style: TextStyle(
                         color: Colors.white70,
                         fontSize: 15,
@@ -95,7 +95,7 @@ class CaseFileScreen extends StatelessWidget {
                         _SceneRow(
                           icon: Icons.directions_car_outlined,
                           text:
-                              'Ruby’s vehicle was not located at the scene or her residence.',
+                              'Ruby’s vehicle remained parked at her residence, suggesting she left with someone else.',
                         ),
                         _SceneRow(
                           icon: Icons.search,

@@ -43,8 +43,8 @@ class DetectiveScreen extends StatelessWidget {
                       'read, “HELP!” Her phone was later recovered near a '
                       'roadside turnout on Pinecrest Road, approximately two '
                       'miles from Pinecrest Lake.\n\n'
-                      'Ruby, her vehicle, and her personal bag were not found '
-                      'at the scene.',
+                      'Ruby and her personal bag were not found at the scene. '
+                      'Her vehicle remained parked at her residence.',
                       style: _CaseStyles.bodyText,
                     ),
                   ),
@@ -70,10 +70,10 @@ class DetectiveScreen extends StatelessWidget {
                         ),
                         _FactRow(
                           icon: Icons.directions_car_outlined,
-                          title: 'Ruby’s vehicle is missing',
+                          title: 'Ruby’s vehicle remained at home',
                           description:
-                              'Her vehicle was not located at the turnout or '
-                              'at her residence.',
+                              'Her vehicle was still parked at her residence, suggesting '
+                              'that Ruby left with someone else.',
                         ),
                         _FactRow(
                           icon: Icons.search,
@@ -589,7 +589,7 @@ class _PersonsOfInterestSection extends StatelessWidget {
             relationship: 'Ruby’s mother',
             icon: Icons.family_restroom,
             summary:
-                'Diane says she last spoke with Ruby earlier that afternoon. '
+                'Diane says she last spoke with Ruby earlier that evening. '
                 'Some details of her account have not been verified.',
           ),
           SizedBox(height: 12),
