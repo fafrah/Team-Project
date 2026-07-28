@@ -21,7 +21,7 @@ class _SocialPostScreenState extends State<SocialPostScreen> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // Unlock evidence only when Diane Beck's post is opened
-      if (widget.post.displayName == "Beck") {
+      if (widget.post.displayName == "Diane Beck") {
         final game = context.read<GameProvider>();
 
         if (!game.state.discoveredClues.any(

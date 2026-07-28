@@ -30,7 +30,7 @@ Dear Ruby,
 
 Our records indicate that your tuition balance of \$14,200 for the current semester remains unpaid.
 
-We have also identified several withdrawals from your Education Savings Account that were either returned or transferred to another account.
+We have also identified four withdrawals totaling \$14,200 from your Education Savings Account that were transferred to another account.
 
 Please contact Financial Services immediately to resolve this matter before your enrollment is affected.
 

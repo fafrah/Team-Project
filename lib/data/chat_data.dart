@@ -147,39 +147,39 @@ final List<Conversation> conversations = [
       ChatMessage(
         sender: "Ruby",
         text:
-            "where were you last night? you said you were home but Maya saw your car downtown",
-        time: "6:02 PM",
+            "where are you? you said you were home but Maya saw your car downtown",
+        time: "8:20 PM",
         isRuby: true,
       ),
       ChatMessage(
         sender: "Jordan",
         text: "I was home babe I swear",
-        time: "6:05 PM",
+        time: "8:22 PM",
         isRuby: false,
       ),
       ChatMessage(
         sender: "Ruby",
         text: "you're lying. why are you being weird",
-        time: "6:07 PM",
+        time: "8:24PM",
         isRuby: true,
       ),
       ChatMessage(
         sender: "Jordan",
         text: "it's nothing bad I promise, just trust me ok",
-        time: "6:10 PM",
+        time: "8:27 PM",
         isRuby: false,
       ),
       ChatMessage(
         sender: "Ruby",
         text: "whatever I have bigger stuff going on right now",
-        time: "6:12 PM",
+        time: "8:29 PM",
         isRuby: true,
       ),
       ChatMessage(
         sender: "Jordan",
         text:
             "is Ruby with you?? she's not answering. I know I looked sketchy but I PROMISE it's not what it looks like, please tell me she's ok",
-        time: "11:13 AM",
+        time: "Wednesday 11:13 AM",
         isRuby: false,
       ),
     ],
