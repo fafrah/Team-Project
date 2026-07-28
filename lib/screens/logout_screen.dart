@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../data/investigation_clock.dart';
+import '../providers/game_provider.dart';
 import 'splash_screen.dart';
 
 class LogoutScreen extends StatefulWidget {
@@ -24,6 +27,9 @@ class _LogoutScreenState extends State<LogoutScreen> {
       await FirebaseAuth.instance.signOut();
 
       if (!mounted) return;
+
+      context.read<GameProvider>().resetGame();
+      InvestigationClock.reset();
 
       // Remove all previous investigation screens.
       // Return to the original Finding Ruby splash screen.

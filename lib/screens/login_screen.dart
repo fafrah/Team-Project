@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../data/investigation_clock.dart';
+import '../providers/game_provider.dart';
 import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -79,6 +82,11 @@ class _LoginScreenState extends State<LoginScreen> {
         email: emailController.text.trim(),
         password: passwordController.text,
       );
+
+      if (!mounted) return;
+
+      context.read<GameProvider>().resetGame();
+      InvestigationClock.reset();
     } on FirebaseAuthException catch (error) {
       if (!mounted) return;
 
