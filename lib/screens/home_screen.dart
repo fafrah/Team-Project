@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'logout_screen.dart';
-import 'phone_screen.dart';
-import 'messages_screen.dart';
-import 'social_media_screen.dart';
+
 import 'case_file_screen.dart';
 import 'email_screen.dart';
+import 'logout_screen.dart';
+import 'messages_screen.dart';
+import 'notes_screen.dart';
+import 'phone_screen.dart';
+import 'photos_screen.dart';
+import 'social_media_screen.dart';
 import 'social_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,28 +16,29 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final apps = [
-      _PhoneApp("Messages", Icons.message, const Color(0xff34C759)),
-      _PhoneApp("Photos", Icons.photo, const Color(0xffFF9500)),
-      _PhoneApp("Mail", Icons.email, const Color(0xff007AFF)),
-      _PhoneApp("Notes", Icons.sticky_note_2, const Color(0xffFFCC00)),
-      _PhoneApp("Phone", Icons.phone, const Color(0xff34C759)),
-      _PhoneApp("Social", Icons.tag, const Color(0xffD32F2F)),
-      _PhoneApp("Beck n' Call", Icons.flutter_dash, const Color(0xff4A90E2)),
-      _PhoneApp("Case File", Icons.folder, const Color(0xff8E44AD)),
-      _PhoneApp("Logout", Icons.logout, Colors.redAccent),
+      const _PhoneApp('Messages', Icons.message, Color(0xFF34C759)),
+      const _PhoneApp('Photos', Icons.photo, Color(0xFFFF9500)),
+      const _PhoneApp('Mail', Icons.email, Color(0xFF007AFF)),
+      const _PhoneApp('Notes', Icons.sticky_note_2, Color(0xFFFFCC00)),
+      const _PhoneApp('Phone', Icons.phone, Color(0xFF34C759)),
+      const _PhoneApp('Social', Icons.tag, Color(0xFFD32F2F)),
+      const _PhoneApp("Beck n' Call", Icons.flutter_dash, Color(0xFF4A90E2)),
+      const _PhoneApp('Case File', Icons.folder, Color(0xFF8E44AD)),
+      const _PhoneApp('Logout', Icons.logout, Colors.redAccent),
     ];
 
     return Scaffold(
+      backgroundColor: const Color(0xFF11141B),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 14),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 14),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
                       "Ruby's Phone",
                       style: TextStyle(fontSize: 14, color: Colors.white70),
@@ -75,89 +79,67 @@ class _PhoneApp {
   final String name;
   final IconData icon;
   final Color color;
-  _PhoneApp(this.name, this.icon, this.color);
+
+  const _PhoneApp(this.name, this.icon, this.color);
 }
 
 class _AppIcon extends StatelessWidget {
   final _PhoneApp app;
+
   const _AppIcon({required this.app});
+
+  void openApp(BuildContext context) {
+    Widget? screen;
+
+    switch (app.name) {
+      case 'Messages':
+        screen = const MessagesScreen();
+        break;
+
+      case 'Photos':
+        screen = const PhotosScreen();
+        break;
+
+      case 'Mail':
+        screen = const EmailScreen();
+        break;
+
+      case 'Notes':
+        screen = const NotesScreen();
+        break;
+
+      case 'Phone':
+        screen = const PhoneScreen();
+        break;
+
+      case 'Social':
+        screen = const SocialScreen();
+        break;
+
+      case "Beck n' Call":
+        screen = const SocialMediaScreen();
+        break;
+
+      case 'Case File':
+        screen = const CaseFileScreen();
+        break;
+
+      case 'Logout':
+        screen = const LogoutScreen();
+        break;
+    }
+
+    if (screen == null) {
+      return;
+    }
+
+    Navigator.push(context, MaterialPageRoute(builder: (_) => screen!));
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        if (app.name == "Messages") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const MessagesScreen()),
-          );
-          return;
-        }
-        if (app.name == "Logout") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const LogoutScreen()),
-          );
-          return;
-        }
-
-        if (app.name == "Phone") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const PhoneScreen()),
-          );
-          return;
-        }
-        if (app.name == "Messages") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const MessagesScreen()),
-          );
-          return;
-        }
-        if (app.name == "Beck n' Call") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const SocialMediaScreen()),
-          );
-          return;
-        }
-        if (app.name == "Case File") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const CaseFileScreen()),
-          );
-          return;
-        }
-        if (app.name == "Logout") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const LogoutScreen()),
-          );
-          return;
-        }
-        if (app.name == "Mail") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const EmailScreen()),
-          );
-          return;
-        }
-
-        if (app.name == "Social") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const SocialScreen()),
-          );
-          return;
-        }
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("${app.name} coming soon"),
-            duration: const Duration(seconds: 1),
-          ),
-        );
-      },
+      onTap: () => openApp(context),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -167,12 +149,20 @@ class _AppIcon extends StatelessWidget {
             decoration: BoxDecoration(
               color: app.color,
               borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.25),
+                  blurRadius: 8,
+                  offset: const Offset(0, 4),
+                ),
+              ],
             ),
             child: Icon(app.icon, color: Colors.white, size: 32),
           ),
           const SizedBox(height: 8),
           Text(
             app.name,
+            textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 13, color: Colors.white),
           ),
         ],

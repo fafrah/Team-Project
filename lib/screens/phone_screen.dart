@@ -45,13 +45,13 @@ class _PhoneScreenState extends State<PhoneScreen> {
       {
         'name': 'Mom',
         'status': 'Incoming',
-        'dateTime': 'July 18, 8:42 PM',
+        'dateTime': 'Tuesday, 8:42 PM',
         'duration': '3 min 12 sec',
       },
       {
-        'name': 'Boyfriend',
+        'name': 'Jordan',
         'status': 'Missed',
-        'dateTime': 'July 18, 7:15 PM',
+        'dateTime': 'Tuesday, 7:15 PM',
         'duration': '0 sec',
       },
       {

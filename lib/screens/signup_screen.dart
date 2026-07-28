@@ -74,8 +74,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
       if (!mounted) return;
 
-      // Account creation signs the user in automatically.
-      // Closing this screen allows AuthGate to continue the app.
       Navigator.pop(context);
     } on FirebaseAuthException catch (error) {
       if (!mounted) return;
@@ -113,7 +111,7 @@ class _SignupScreenState extends State<SignupScreen> {
         fit: StackFit.expand,
         children: [
           Image.asset('lib/assets/images/background.jpg', fit: BoxFit.cover),
-          Container(color: Colors.black.withOpacity(0.78)),
+          Container(color: Colors.black.withValues(alpha: 0.78)),
           SafeArea(
             child: Center(
               child: SingleChildScrollView(
@@ -147,20 +145,19 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         const SizedBox(height: 35),
 
-                        // Email field
                         TextFormField(
                           controller: emailController,
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.next,
-                          autofillHints: const [AutofillHints.newUsername],
                           autocorrect: false,
+                          enableSuggestions: false,
                           decoration: InputDecoration(
                             labelText: 'Email',
                             hintText: 'Johndoe123@example.com',
                             helperText: 'Example: Johndoe123@example.com',
                             prefixIcon: const Icon(Icons.email),
                             filled: true,
-                            fillColor: Colors.white.withOpacity(0.08),
+                            fillColor: Colors.white.withValues(alpha: 0.08),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(16),
                             ),
@@ -179,14 +176,15 @@ class _SignupScreenState extends State<SignupScreen> {
                             return null;
                           },
                         ),
+
                         const SizedBox(height: 18),
 
-                        // Password field
                         TextFormField(
                           controller: passwordController,
                           obscureText: obscurePassword,
                           textInputAction: TextInputAction.next,
-                          autofillHints: const [AutofillHints.newPassword],
+                          autocorrect: false,
+                          enableSuggestions: false,
                           decoration: InputDecoration(
                             labelText: 'Password',
                             helperText:
@@ -208,7 +206,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               ),
                             ),
                             filled: true,
-                            fillColor: Colors.white.withOpacity(0.08),
+                            fillColor: Colors.white.withValues(alpha: 0.08),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(16),
                             ),
@@ -235,13 +233,15 @@ class _SignupScreenState extends State<SignupScreen> {
                             return null;
                           },
                         ),
+
                         const SizedBox(height: 18),
 
-                        // Confirm password field
                         TextFormField(
                           controller: confirmPasswordController,
                           obscureText: obscureConfirmPassword,
                           textInputAction: TextInputAction.done,
+                          autocorrect: false,
+                          enableSuggestions: false,
                           onFieldSubmitted: (_) {
                             if (!isLoading) {
                               signupUser();
@@ -267,7 +267,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               ),
                             ),
                             filled: true,
-                            fillColor: Colors.white.withOpacity(0.08),
+                            fillColor: Colors.white.withValues(alpha: 0.08),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(16),
                             ),
@@ -286,9 +286,9 @@ class _SignupScreenState extends State<SignupScreen> {
                             return null;
                           },
                         ),
+
                         const SizedBox(height: 15),
 
-                        // Firebase signup error
                         if (errorMessage.isNotEmpty)
                           Semantics(
                             liveRegion: true,
@@ -301,9 +301,9 @@ class _SignupScreenState extends State<SignupScreen> {
                               ),
                             ),
                           ),
+
                         const SizedBox(height: 20),
 
-                        // Signup button
                         SizedBox(
                           height: 58,
                           child: ElevatedButton(
@@ -333,9 +333,9 @@ class _SignupScreenState extends State<SignupScreen> {
                                   ),
                           ),
                         ),
+
                         const SizedBox(height: 18),
 
-                        // Return to login
                         TextButton(
                           onPressed: isLoading
                               ? null

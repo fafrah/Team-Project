@@ -64,7 +64,7 @@ final List<Conversation> conversations = [
         time: "8:18 PM",
         isRuby: false,
       ),
-      ChatMessage(sender: "Ruby", text: "Help!", time: "9:42 AM", isRuby: true),
+      ChatMessage(sender: "Ruby", text: "Help!", time: "9:42 PM", isRuby: true),
     ],
   ),
 
