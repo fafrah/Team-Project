@@ -27,20 +27,34 @@ class AccusationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final suspects = [
-      _Suspect("Diane", "Ruby's Mother",
-          "Her story keeps changing. Says she was home all night.", Icons.person),
-      _Suspect("Jordan", "Ruby's Boyfriend",
-          "Lied about where he was the night Ruby disappeared.", Icons.person),
-      _Suspect("Kayla", "Ruby's Rival",
-          "Publicly threatened Ruby days before she went missing.", Icons.person),
+      _Suspect(
+        "Diane",
+        "Ruby's Mother",
+        "Her story keeps changing. Says she was home all night.",
+        Icons.person,
+      ),
+      _Suspect(
+        "Jordan",
+        "Ruby's Boyfriend",
+        "Lied about where he was the night Ruby disappeared.",
+        Icons.person,
+      ),
+      _Suspect(
+        "Kayla",
+        "Ruby's Rival",
+        "Publicly threatened Ruby days before she went missing.",
+        Icons.person,
+      ),
     ];
 
     return Scaffold(
       backgroundColor: const Color(0xff080A0F),
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Text("Make Your Accusation",
-            style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text(
+          "Make Your Accusation",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -90,10 +104,12 @@ class AccusationScreen extends StatelessWidget {
               style: TextStyle(color: Colors.white60, fontSize: 14),
             ),
             const SizedBox(height: 24),
-            ...suspects.map((s) => _SuspectCard(
-                  suspect: s,
-                  onAccuse: () => _accuse(context, s.name),
-                )),
+            ...suspects.map(
+              (s) => _SuspectCard(
+                suspect: s,
+                onAccuse: () => _accuse(context, s.name),
+              ),
+            ),
           ],
         ),
       ),
@@ -137,21 +153,30 @@ class _SuspectCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(suspect.name,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold)),
-                  Text(suspect.role,
-                      style: const TextStyle(
-                          color: Colors.redAccent, fontSize: 13)),
+                  Text(
+                    suspect.name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    suspect.role,
+                    style: const TextStyle(
+                      color: Colors.redAccent,
+                      fontSize: 13,
+                    ),
+                  ),
                 ],
               ),
             ],
           ),
           const SizedBox(height: 12),
-          Text(suspect.note,
-              style: const TextStyle(color: Colors.white70, fontSize: 14)),
+          Text(
+            suspect.note,
+            style: const TextStyle(color: Colors.white70, fontSize: 14),
+          ),
           const SizedBox(height: 14),
           SizedBox(
             width: double.infinity,
@@ -165,8 +190,10 @@ class _SuspectCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: Text("Accuse ${suspect.name}",
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
+              child: Text(
+                "Accuse ${suspect.name}",
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ),
         ],

@@ -88,7 +88,9 @@ class EndingScreen extends StatelessWidget {
                       InvestigationClock.reset();
                       Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (_) => const DetectiveScreen()),
+                        MaterialPageRoute(
+                          builder: (_) => const DetectiveScreen(),
+                        ),
                         (route) => false,
                       );
                     },
@@ -101,7 +103,10 @@ class EndingScreen extends StatelessWidget {
                     ),
                     child: const Text(
                       "PLAY AGAIN",
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -126,7 +131,10 @@ class EndingScreen extends StatelessWidget {
                     ),
                     child: const Text(
                       "BACK TO PHONE",
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),

@@ -18,7 +18,7 @@ class _SocialMediaThreeScreenState extends State<SocialMediaThreeScreen> {
           "Long night downtown... finally got everything together. Hope it's worth it.",
       "likes": "164",
       "comments": "22",
-      "time": "Night Ruby disappeared • 7:52 PM",
+      "time": "Night Ruby disappeared • 8:12 PM",
     },
 
     {
@@ -77,7 +77,7 @@ class _SocialMediaThreeScreenState extends State<SocialMediaThreeScreen> {
           ),
 
           const Center(
-            child: Text("@jordantaylor", style: TextStyle(color: Colors.grey)),
+            child: Text("@jordansmith", style: TextStyle(color: Colors.grey)),
           ),
 
           const SizedBox(height: 15),
@@ -320,7 +320,7 @@ class JordanPost extends StatelessWidget {
 
           children: [
             const Text(
-              "Jordan @jordantaylor",
+              "Jordan @jordansmith",
 
               style: TextStyle(
                 color: Colors.white,

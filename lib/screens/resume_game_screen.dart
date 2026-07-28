@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/game_provider.dart';
-
-import 'intro_screen.dart';
-import 'home_screen.dart';
-import 'messages_screen.dart';
-import 'photos_screen.dart';
-import 'notes_screen.dart';
-import 'social_media_screen.dart';
-
-// Change this import if your email screen has a different name.
 import 'email_screen.dart';
+import 'home_screen.dart';
+import 'intro_screen.dart';
+import 'messages_screen.dart';
+import 'notes_screen.dart';
+import 'photos_screen.dart';
+import 'social_media_screen.dart';
 
 class ResumeGameScreen extends StatefulWidget {
   const ResumeGameScreen({super.key});
@@ -24,46 +21,49 @@ class _ResumeGameScreenState extends State<ResumeGameScreen> {
   @override
   void initState() {
     super.initState();
-    _resumeGame();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _resumeGame();
+    });
   }
 
-  Future<void> _resumeGame() async {
-    final game = Provider.of<GameProvider>(context, listen: false);
-
-    await game.loadGame();
-
-    if (!mounted) return;
+  void _resumeGame() {
+    final game = context.read<GameProvider>();
+    final currentScreen = game.state.currentScreen;
 
     Widget nextScreen;
 
-    switch (game.gameState.currentScreen) {
-      case "home":
+    switch (currentScreen) {
+      case 'home':
         nextScreen = const HomeScreen();
         break;
 
-      case "messages":
+      case 'messages':
         nextScreen = const MessagesScreen();
         break;
 
-      case "photos":
+      case 'photos':
         nextScreen = const PhotosScreen();
         break;
 
-      case "notes":
+      case 'notes':
         nextScreen = const NotesScreen();
         break;
 
-      case "social":
-        nextScreen = const SocialMediaScreen();
-        break;
-
-      case "email":
+      case 'email':
         nextScreen = const EmailScreen();
         break;
 
+      case 'social':
+        nextScreen = const SocialMediaScreen();
+        break;
+
       default:
-        // First time playing
         nextScreen = const IntroScreen();
+    }
+
+    if (!mounted) {
+      return;
     }
 
     Navigator.pushReplacement(

@@ -235,7 +235,7 @@ class _SocialMediaScreenState extends State<SocialMediaScreen> {
             title: const Text("Jordan", style: TextStyle(color: Colors.white)),
 
             subtitle: const Text(
-              "@jordantaylor",
+              "@jordansmith",
 
               style: TextStyle(color: Colors.grey),
             ),
