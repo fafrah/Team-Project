@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/game_state.dart';
+import '../models/evidence.dart';
 
 class GameProvider extends ChangeNotifier {
   GameState _state = const GameState();
@@ -27,6 +28,18 @@ class GameProvider extends ChangeNotifier {
 
   void updateScreen(String screen) {
     _state = _state.copyWith(currentScreen: screen);
+
+    notifyListeners();
+  }
+
+  void discoverClue(Evidence clue) {
+    if (_state.discoveredClues.any((c) => c.title == clue.title)) {
+      return;
+    }
+
+    _state = _state.copyWith(
+      discoveredClues: [..._state.discoveredClues, clue],
+    );
 
     notifyListeners();
   }

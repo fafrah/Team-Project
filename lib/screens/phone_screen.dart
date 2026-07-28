@@ -1,7 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class PhoneScreen extends StatelessWidget {
+import '../models/evidence.dart';
+import '../providers/game_provider.dart';
+
+class PhoneScreen extends StatefulWidget {
   const PhoneScreen({super.key});
+
+  @override
+  State<PhoneScreen> createState() => _PhoneScreenState();
+}
+
+class _PhoneScreenState extends State<PhoneScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final game = context.read<GameProvider>();
+
+      if (!game.state.discoveredClues.any((e) => e.title == "Unknown Caller")) {
+        game.discoverClue(
+          const Evidence(
+            title: "Unknown Caller",
+            description:
+                "Ruby made a late-night call to an unknown number the night before she disappeared.",
+            icon: Icons.phone,
+          ),
+        );
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("🔎 New Evidence Discovered!"),
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +72,13 @@ class PhoneScreen extends StatelessWidget {
           final call = callLogs[index];
 
           return ListTile(
-            leading: const CircleAvatar(child: Icon(Icons.person)),
+            leading: CircleAvatar(
+              child: Icon(
+                call['name'] == 'Unknown Number'
+                    ? Icons.phone_disabled
+                    : Icons.person,
+              ),
+            ),
             title: Text(call['name']!),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

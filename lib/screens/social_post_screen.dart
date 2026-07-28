@@ -1,27 +1,64 @@
 import 'package:flutter/material.dart';
-import '../data/social_data.dart';
+import 'package:provider/provider.dart';
 
-class SocialPostScreen extends StatelessWidget {
+import '../data/social_data.dart';
+import '../models/evidence.dart';
+import '../providers/game_provider.dart';
+
+class SocialPostScreen extends StatefulWidget {
   final SocialPost post;
 
   const SocialPostScreen({super.key, required this.post});
 
   @override
+  State<SocialPostScreen> createState() => _SocialPostScreenState();
+}
+
+class _SocialPostScreenState extends State<SocialPostScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Unlock evidence only when Diane Harper's post is opened
+      if (widget.post.displayName == "Diane Harper") {
+        final game = context.read<GameProvider>();
+
+        if (!game.state.discoveredClues.any(
+          (e) => e.title == "Pinecrest Lake",
+        )) {
+          game.discoverClue(
+            const Evidence(
+              title: "Pinecrest Lake",
+              description:
+                  "Diane's post places her at Pinecrest Lake shortly before Ruby disappeared.",
+              icon: Icons.location_on,
+            ),
+          );
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("🔎 New Evidence Discovered!"),
+              duration: Duration(seconds: 2),
+            ),
+          );
+        }
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text(post.displayName),
+        title: Text(widget.post.displayName),
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
-
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-
           children: [
             Row(
               children: [
@@ -29,7 +66,7 @@ class SocialPostScreen extends StatelessWidget {
                   radius: 26,
                   backgroundColor: Colors.purple,
                   child: Text(
-                    post.displayName[0],
+                    widget.post.displayName[0],
                     style: const TextStyle(color: Colors.white, fontSize: 20),
                   ),
                 ),
@@ -38,12 +75,11 @@ class SocialPostScreen extends StatelessWidget {
 
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-
                   children: [
                     Row(
                       children: [
                         Text(
-                          post.displayName,
+                          widget.post.displayName,
                           style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -51,7 +87,7 @@ class SocialPostScreen extends StatelessWidget {
                           ),
                         ),
 
-                        if (post.verified)
+                        if (widget.post.verified)
                           const Padding(
                             padding: EdgeInsets.only(left: 5),
                             child: Icon(
@@ -64,12 +100,12 @@ class SocialPostScreen extends StatelessWidget {
                     ),
 
                     Text(
-                      post.username,
+                      widget.post.username,
                       style: const TextStyle(color: Colors.grey),
                     ),
 
                     Text(
-                      post.location,
+                      widget.post.location,
                       style: const TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                   ],
@@ -80,7 +116,7 @@ class SocialPostScreen extends StatelessWidget {
             const SizedBox(height: 30),
 
             Text(
-              post.caption,
+              widget.post.caption,
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -97,7 +133,7 @@ class SocialPostScreen extends StatelessWidget {
                 const SizedBox(width: 8),
 
                 Text(
-                  "${post.likes}",
+                  "${widget.post.likes}",
                   style: const TextStyle(color: Colors.white),
                 ),
 
@@ -108,7 +144,7 @@ class SocialPostScreen extends StatelessWidget {
                 const SizedBox(width: 8),
 
                 Text(
-                  "${post.comments}",
+                  "${widget.post.comments}",
                   style: const TextStyle(color: Colors.white),
                 ),
               ],
@@ -116,7 +152,7 @@ class SocialPostScreen extends StatelessWidget {
 
             const SizedBox(height: 25),
 
-            Text(post.date, style: const TextStyle(color: Colors.grey)),
+            Text(widget.post.date, style: const TextStyle(color: Colors.grey)),
           ],
         ),
       ),
