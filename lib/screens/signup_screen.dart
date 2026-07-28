@@ -1,5 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../data/investigation_clock.dart';
+import '../providers/game_provider.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -73,6 +77,9 @@ class _SignupScreenState extends State<SignupScreen> {
       );
 
       if (!mounted) return;
+
+      context.read<GameProvider>().resetGame();
+      InvestigationClock.reset();
 
       Navigator.pop(context);
     } on FirebaseAuthException catch (error) {

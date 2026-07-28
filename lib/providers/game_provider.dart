@@ -7,6 +7,11 @@ class GameProvider extends ChangeNotifier {
 
   GameState get state => _state;
 
+  void resetGame() {
+    _state = const GameState();
+    notifyListeners();
+  }
+
   void startInvestigation() {
     _state = _state.copyWith(
       investigationStarted: true,
